@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"></include>
+    <logger name="org.springframework.web" level="INFO"></logger><!-- 配置默认打印级别 -->
+    <logger name="org.springboot.sample" level="TRACE"></logger><!-- 配置默认打印级别 -->
+    <logger name="com.space" level="DEBUG"></logger><!-- 配置默认打印级别 -->
+
+    <!-- 开发、测试环境 -->
+    <springProfile name="dev,test">
+        <logger name="org.springframework.web" level="INFO"></logger>
+        <logger name="org.springboot.sample" level="INFO"></logger>
+        <logger name="com.space" level="DEBUG"></logger>
+    </springProfile>
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <logger name="org.springframework.web" level="ERROR"></logger>
+        <logger name="org.springboot.sample" level="ERROR"></logger>
+        <logger name="com.space" level="ERROR"></logger>
+    </springProfile>
+
+</configuration>
