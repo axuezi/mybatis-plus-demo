@@ -1,6 +1,7 @@
 package com.space;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.space.entity.Department;
 import com.space.service.IDepartmentService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,12 @@ public class UnitTest {
 
     @Resource
     IDepartmentService departmentService;
+
+    @Test
+    public void page() {
+        Page<Department> page = departmentService.page(new Page<>(1, 10));
+        log.info("{}", page);
+    }
 
     @Test
     public void list() {
