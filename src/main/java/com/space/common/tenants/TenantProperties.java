@@ -1,4 +1,4 @@
-package com.space.common.handler;
+package com.space.common.tenants;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -2,6 +2,7 @@ package com.space.common.handler;
 
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
+import com.space.common.tenants.TenantProperties;
 import com.space.common.config.MyBatisPlusConfig;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
