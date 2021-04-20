@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author axue
  */
 @Data
-public class Result implements Serializable {
+public class Result<T> implements Serializable {
 
     /**
      * 状态
@@ -26,7 +26,7 @@ public class Result implements Serializable {
     /**
      * 数据
      */
-    private Object data;
+    private T data;
 
     public Result() {
 
@@ -35,8 +35,8 @@ public class Result implements Serializable {
     /**
      * 返回成功，无数据
      */
-    public static Result success() {
-        Result result = new Result();
+    public static <T> Result<T> success() {
+        Result<T> result = new Result<>();
         result.setCode(ResultCode.SUCCESS.getCode());
         result.setMessage(ResultCode.SUCCESS.getMessage());
         return result;
@@ -45,8 +45,8 @@ public class Result implements Serializable {
     /**
      * 返回成功，有数据
      */
-    public static Result success(Object data) {
-        Result result = new Result();
+    public static <T> Result<T> success(T data) {
+        Result<T> result = new Result<>();
         result.setCode(ResultCode.SUCCESS.getCode());
         result.setMessage(ResultCode.SUCCESS.getMessage());
         result.setData(data);
@@ -56,8 +56,8 @@ public class Result implements Serializable {
     /**
      * 返回失败，无数据
      */
-    public static Result failure(ResultCode resultCode) {
-        Result result = new Result();
+    public static <T> Result<T> failure(ResultCode resultCode) {
+        Result<T> result = new Result<>();
         result.setCode(resultCode.getCode());
         result.setMessage(resultCode.getMessage());
         return result;
@@ -70,8 +70,8 @@ public class Result implements Serializable {
      * @param data       数据
      * @return 返回失败，有数据
      */
-    public static Result failure(ResultCode resultCode, Object data) {
-        Result result = new Result();
+    public static <T> Result<T> failure(ResultCode resultCode, T data) {
+        Result<T> result = new Result<>();
         result.setCode(resultCode.getCode());
         result.setMessage(resultCode.getMessage());
         result.setData(data);

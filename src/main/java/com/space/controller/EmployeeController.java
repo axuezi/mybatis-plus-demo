@@ -29,10 +29,10 @@ public class EmployeeController {
     IEmployeeService employeeService;
 
     @GetMapping("get")
-    public Result getEmployee(String id) {
+    public Result<String> getEmployee(String id) {
         List<Employee> list = employeeService.list();
         if (!StringUtils.hasText(id)) {
-            return Result.success(list);
+            return Result.success("123456");
         } else {
             return Result.failure(ResultCode.PARAM_IS_INVALID);
         }

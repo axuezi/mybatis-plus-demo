@@ -1,6 +1,8 @@
 package com.space.common.handler;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.space.common.result.Result;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -25,10 +27,15 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
         return true;
     }
 
+    @SneakyThrows
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType, Class<? extends
             HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         log.info("进入返回体重写格式处理中 -> {}", body);
+        if (body instanceof String) {
+            ObjectMapper om = new ObjectMapper();
+            return om.writeValueAsString(Result.success(body));
+        }
         if (body instanceof Result) {
             return body;
         }
