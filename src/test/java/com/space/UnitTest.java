@@ -1,7 +1,9 @@
 package com.space;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.space.dao.DepartmentMapper;
 import com.space.entity.Department;
 import com.space.service.IDepartmentService;
 import lombok.extern.slf4j.Slf4j;
@@ -52,4 +54,12 @@ public class UnitTest {
         departmentService.remove(wrapper);
     }
 
+    @Resource
+    DepartmentMapper departmentMapper;
+
+    @Test
+    public void ttt() {
+        Page<Department> departmentIPage = new Page<>(1, 2);
+        departmentMapper.queryPage(departmentIPage);
+    }
 }

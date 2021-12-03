@@ -1,5 +1,6 @@
 package com.space.dao;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.space.entity.Department;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface DepartmentMapper extends BaseMapper<Department> {
 
+    IPage<Department> queryPage(IPage page);
 }

@@ -63,7 +63,7 @@ public class AutoFieldFillHandler implements MetaObjectHandler {
         // 判断是否存在updateTime字段,有的情况下才给它自动填充值
         if (metaObject.hasSetter(UPDATE_TIME)) {
             this.strictUpdateFill(metaObject, UPDATE_TIME, LocalDateTime.class, LocalDateTime.now());
-            this.strictInsertFill(metaObject, UPDATE_BY, String.class, USER);
+            this.strictUpdateFill(metaObject, UPDATE_BY, String.class, USER);
         }
     }
 

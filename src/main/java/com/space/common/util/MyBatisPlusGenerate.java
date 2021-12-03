@@ -25,7 +25,7 @@ public class MyBatisPlusGenerate {
     /**
      * 数据库URL
      */
-    private final static String URL = "jdbc:mysql://127.0.0.1:3306/db_test?useUnicode=true" +
+    private final static String URL = "jdbc:mysql://172.16.163.35:3306/elevator_management?useUnicode=true" +
             "&characterEncoding=UTF-8&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true";
 
     /**
